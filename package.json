@@ -1,0 +1,66 @@
+{
+  "name": "swell-scales",
+  "version": "0.1.0",
+  "description": "Enhance your Tailwind CSS projects with a typographic scales generator, font pairing system, and color palette creator.",
+  "main": "index.js",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michelediss/swell-scales.git"
+  },
+  "keywords": [
+    "vue",
+    "tailwindcss",
+    "ui",
+    "colors",
+    "design"
+  ],
+  "author": "Michele Paolino <mail@michelepaolino.me> https://michelepaolino.me",
+  "license": "GNU GPLv3",
+  "dependencies": {
+    "@heroicons/vue": "^2.1.3",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.12",
+    "chroma-js": "^2.4.2",
+    "core-js": "^3.8.3",
+    "hsluv": "^1.0.1",
+    "vue": "^3.2.13"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}
