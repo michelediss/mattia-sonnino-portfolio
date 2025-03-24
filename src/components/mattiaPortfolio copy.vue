@@ -82,7 +82,7 @@
       <div class="block md:flex w-full lg:w-10/12">
         <div id="profile-pic-col" class="flex justify-center pr-0 md:pr-4 pb-16 lg:pr-16 w-full md:w-2/5">
           <div class="w-full md:w-10/12">
-            <img :src="baseUrl + 'img/profile/mattia-sonnino-36-square.jpg'" alt="profile-pic" id="profile-pic" class="rounded-full shadow-xl">
+            <img src="/img/profile/mattia-sonnino-36-square.jpg" alt="profile-pic" id="profile-pic" class="rounded-full shadow-xl">
           </div>
         </div>
 
@@ -116,7 +116,7 @@
             <p id="port" ref="port" class="block md:inline mr-16 text-lg font-heading text-slate-600 cursor-pointer font-bold underline">
               GO TO PORTFOLIO
             </p>
-            <a :href="baseUrl + 'cv/mattia-sonnino-cv_mar-2024.pdf'" target="_blank" id="cv" class="block mt-4 md:mt-0 md:inline text-lg font-heading text-slate-600 font-bold underline">
+            <a href="/cv/mattia-sonnino-cv_mar-2024.pdf" target="_blank" id="cv" class="block mt-4 md:mt-0 md:inline text-lg font-heading text-slate-600 font-bold underline">
               READ CURRICULUM VITAE
             </a>
           </div>
@@ -128,7 +128,7 @@
     <section id="video" class="bg-slate-300">
       <div class="video-container py-12 px-6 flex justify-center">
         <video class="rounded-lg" controls>
-          <source :src="baseUrl + 'img/video/showreel-mattia-sonnino.mp4'" type="video/mp4">
+          <source src="/img/video/showreel-mattia-sonnino.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -139,31 +139,31 @@
       <div class="columns-2 md:columns-3 lg:columns-4 gap-0">
         <!-- Colonna 1 -->
         <div>
-          <img :src="baseUrl + 'img/gallery/mattia-sonnino-1.jpg'" alt="">
-          <img :src="baseUrl + 'img/gallery/mattia-sonnino-10.jpg'" alt="">
-          <img :src="baseUrl + 'img/gallery/mattia-sonnino-11.jpg'" alt="">
-          <img :src="baseUrl + 'img/gallery/mattia-sonnino-12.jpg'" alt="">
+          <img src="/img/gallery/mattia-sonnino-1.jpg" alt="">
+          <img src="/img/gallery/mattia-sonnino-10.jpg" alt="">
+          <img src="/img/gallery/mattia-sonnino-11.jpg" alt="">
+          <img src="/img/gallery/mattia-sonnino-12.jpg" alt="">
         </div>
         <!-- Colonna 2 -->
         <div>
-          <img :src="baseUrl + 'img/gallery/mattia-sonnino-20.jpg'" alt="">
-          <img :src="baseUrl + 'img/gallery/mattia-sonnino-21.jpg'" alt="">
-          <img :src="baseUrl + 'img/gallery/mattia-sonnino-22.jpg'" alt="">
-          <img :src="baseUrl + 'img/gallery/mattia-sonnino-23.jpg'" alt="">
+          <img src="/img/gallery/mattia-sonnino-20.jpg" alt="">
+          <img src="/img/gallery/mattia-sonnino-21.jpg" alt="">
+          <img src="/img/gallery/mattia-sonnino-22.jpg" alt="">
+          <img src="/img/gallery/mattia-sonnino-23.jpg" alt="">
         </div>
         <!-- Colonna 3 -->
         <div>
-          <img :src="baseUrl + 'img/gallery/mattia-sonnino-30.jpg'" alt="">
-          <img :src="baseUrl + 'img/gallery/mattia-sonnino-31.jpg'" alt="">
-          <img :src="baseUrl + 'img/gallery/mattia-sonnino-32.jpg'" alt="">
-          <img :src="baseUrl + 'img/gallery/mattia-sonnino-33.jpg'" alt="">
+          <img src="/img/gallery/mattia-sonnino-30.jpg" alt="">
+          <img src="/img/gallery/mattia-sonnino-31.jpg" alt="">
+          <img src="/img/gallery/mattia-sonnino-32.jpg" alt="">
+          <img src="/img/gallery/mattia-sonnino-33.jpg" alt="">
         </div>
         <!-- Colonna 4 -->
         <div>
-          <img :src="baseUrl + 'img/gallery/mattia-sonnino-40.jpg'" alt="">
-          <img :src="baseUrl + 'img/gallery/mattia-sonnino-41.jpg'" alt="">
-          <img :src="baseUrl + 'img/gallery/mattia-sonnino-42.jpg'" alt="">
-          <img :src="baseUrl + 'img/gallery/mattia-sonnino-43.jpg'" alt="">
+          <img src="/img/gallery/mattia-sonnino-40.jpg" alt="">
+          <img src="/img/gallery/mattia-sonnino-41.jpg" alt="">
+          <img src="/img/gallery/mattia-sonnino-42.jpg" alt="">
+          <img src="/img/gallery/mattia-sonnino-43.jpg" alt="">
         </div>
       </div>
     </section>
@@ -220,11 +220,10 @@ import ScrollToPlugin from "gsap/ScrollToPlugin";
 export default {
   data() {
     return {
-      // Definiamo baseUrl in data così diventa disponibile per il template
-      baseUrl: process.env.BASE_URL,
+      // Percorsi delle immagini per il carousel
       images: [
-        process.env.BASE_URL + "img/carousel/Mattia-Sonnino-7-min.jpg",
-        process.env.BASE_URL + "img/carousel/mattia-sonnino-hero.jpg"
+        "/img/carousel/Mattia-Sonnino-7-min.jpg",
+        "/img/carousel/mattia-sonnino-hero.jpg"
       ],
       currentImageIndex: 0,
       isFirstVisible: true,
@@ -234,10 +233,13 @@ export default {
   methods: {
     cycleImages() {
       const nextIndex = (this.currentImageIndex + 1) % this.images.length;
+      // Se isFirstVisible è true, bg1 è visibile e bg2 sarà il target per la nuova immagine
       let currentBg = this.isFirstVisible ? this.$refs.bg1 : this.$refs.bg2;
       let nextBg = this.isFirstVisible ? this.$refs.bg2 : this.$refs.bg1;
+      // Aggiorno lo sfondo del layer nascosto con la nuova immagine
       nextBg.style.backgroundImage = `url(${this.images[nextIndex]})`;
 
+      // Effettua il crossfade: contemporaneamente il layer corrente svanisce e quello nuovo appare
       gsap.to(currentBg, { duration: 1, opacity: 0, ease: "power2.inOut" });
       gsap.to(nextBg, {
         duration: 1,
@@ -245,6 +247,7 @@ export default {
         ease: "power2.inOut",
         onComplete: () => {
           this.currentImageIndex = nextIndex;
+          // Inverti il flag per indicare quale layer è visibile
           this.isFirstVisible = !this.isFirstVisible;
         }
       });
@@ -257,8 +260,10 @@ export default {
     }
   },
   mounted() {
+    // Avvia il ciclo immagini ogni 5 secondi
     this.imageInterval = setInterval(this.cycleImages, 5000);
 
+    // Aggiunge il CSS per le icone
     const link = document.createElement("link");
     link.href = "https://cdn.lineicons.com/4.0/lineicons.css";
     link.type = "text/css";
@@ -278,6 +283,7 @@ export default {
       }
     });
 
+    // Timeline iniziale per l'hero e gli altri elementi (rimane invariata)
     const tl = gsap.timeline();
     tl.from("#hero", { duration: 0.5, opacity: 0, delay: 0.5 })
       .from(
@@ -314,6 +320,7 @@ export default {
       .from("#cv", { duration: 1.6, opacity: 0 }, "-=1.4");
   },
   beforeUnmount() {
+    // Pulisce l'intervallo al distruggimento del componente
     if (this.imageInterval) {
       clearInterval(this.imageInterval);
     }
@@ -335,6 +342,7 @@ export default {
   height: 100%;
 }
 
+/* Gli stili per il resto del componente rimangono invariati */
 #social .lni {
   font-size: 1.6rem;
 }
