@@ -1,9 +1,10 @@
-// vue.config.js
 const webpack = require('webpack');
 
 module.exports = {
   // Configura il publicPath per GitHub Pages
-  publicPath: process.env.NODE_ENV === "production" ? "/" : "/",
+  publicPath: process.env.NODE_ENV === "production"
+    ? "/mattia-sonnino-portfolio/"
+    : "/",
 
   chainWebpack: (config) => {
     config.module
