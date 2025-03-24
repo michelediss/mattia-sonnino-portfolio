@@ -9,18 +9,7 @@
     "lint": "vue-cli-service lint",
     "deploy": "gh-pages -d dist"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/michelediss/swell-scales.git"
-  },
-  "keywords": [
-    "vue",
-    "tailwindcss",
-    "ui",
-    "colors",
-    "design"
-  ],
-  "author": "Michele Paolino <mail@michelepaolino.me> https://michelepaolino.me",
+  "author": "Michele Paolino <mail@michelepaolino.com> https://michelepaolino.com",
   "license": "GNU GPLv3",
   "dependencies": {
     "@heroicons/vue": "^2.1.3",
